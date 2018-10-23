@@ -11,51 +11,42 @@ You might use RandomizedField to generate:
 - Tokens for password reset emails
 - Temporary tokens embedded in an email that automatically log users in
 
-## Usage
+## Installation and Usage
 
-To use RandomizedFIeld, add this line to your application's Gemfile:
+1. Add the `randomized_field` gem to your application's Gemfile:
 
-```ruby
-gem 'randomized_field'
-```
+   ```ruby
+   gem 'randomized_field'
+   ```
+2. Run `bundle` to install the gem
 
-Next, include `RandomizedField` in the models you care about, like so:
+   ```console
+   $ bundle
+   ```
 
-```ruby
-class Article < ApplicationRecord
-  include RandomizedField
+   Or install it directly with the `gem` command:
 
-  randomized_field :slug, length: 10
-end
-```
+   ```console
+   $ gem install randomized_field
+   ```
 
-RandomizedField won't do anything unless you also call `randomized_field` with the name of the field you want to populate. You can include `RandomizedField` in `ApplicationRecord` or another shared base class if you want `randomized_field` available in every model.
+3. Include `RandomizedField` in the models you care about (or in a shared base class like `ApplicationRecord` if you want it available to every model):
 
-## Installation
+   ```ruby
+   class Article < ApplicationRecord
+     include RandomizedField
 
-Add this line to your application's Gemfile:
+     randomized_field :slug, length: 10
+   end
+   ```
 
-```ruby
-gem 'randomized_field'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install randomized_field
-
-## Usage
-
-TODO: Write usage instructions here
+**Note**: RandomizedField won't do anything unless you also call `randomized_field` with the name of the field you want to populate.
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Contributing
 
@@ -63,4 +54,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/Strive
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).  See the `LICENSE.txt` file.

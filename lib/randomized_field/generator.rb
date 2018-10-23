@@ -7,6 +7,9 @@ module RandomizedField
       valid_characters: [*("0".."9"), *("a".."z")]
     }.freeze
 
+    attr_reader :block, :length, :valid_characters
+    private :block, :length, :valid_characters
+
     def initialize(options = {}, &block)
       @length = options.fetch(:length, DEFAULTS[:length])
       @valid_characters = options.fetch(:valid_characters, DEFAULTS[:valid_characters])
@@ -16,9 +19,5 @@ module RandomizedField
     def generate
       block.call(Array.new(length) { valid_characters.sample }.join)
     end
-
-    private
-
-    attr_reader :block, :length, :valid_characters
   end
 end

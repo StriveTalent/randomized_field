@@ -3,6 +3,7 @@ module RandomizedField
   # of the randomized field.
   class Callback
     attr_reader :field_name, :generator
+    private :field_name, :generator
 
     def initialize(field_name, **generator_opts, &block)
       @field_name = field_name

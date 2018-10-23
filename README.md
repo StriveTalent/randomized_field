@@ -1,8 +1,35 @@
 # RandomizedField
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/randomized_field`. To experiment with that code, run `bin/console` for an interactive prompt.
+RandomizedField is a simple module for ActiveRecord that populates a field with a unique, randomly-generated string. This is useful for generating one-off tokens or creating a non-incrementing unique ID.
 
-TODO: Delete this and the text above, and describe your gem
+Oftentimes we want a randomized unique ID so that we don't reveal information about how large our database is or to create an unguessable (and perhaps temporary) token for things like password resets, etc.
+
+You might use RandomizedField to generate:
+
+- Order numbers, return authorization numbers, etc. for an e-commerce system
+- Unique referral IDs or invitation tokens for each user of your site
+- Tokens for password reset emails
+- Temporary tokens embedded in an email that automatically log users in
+
+## Usage
+
+To use RandomizedFIeld, add this line to your application's Gemfile:
+
+```ruby
+gem 'randomized_field'
+```
+
+Next, include `RandomizedField` in the models you care about, like so:
+
+```ruby
+class Article < ApplicationRecord
+  include RandomizedField
+
+  randomized_field :slug, length: 10
+end
+```
+
+RandomizedField won't do anything unless you also call `randomized_field` with the name of the field you want to populate. You can include `RandomizedField` in `ApplicationRecord` or another shared base class if you want `randomized_field` available in every model.
 
 ## Installation
 
@@ -32,7 +59,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/randomized_field.
+Bug reports and pull requests are welcome on GitHub at https://github.com/StriveTalent/randomized_field.
 
 ## License
 

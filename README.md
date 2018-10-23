@@ -42,6 +42,34 @@ You might use RandomizedField to generate:
 
 **Note**: RandomizedField won't do anything unless you also call `randomized_field` with the name of the field you want to populate.
 
+## Features
+
+Including `RandomizedField` in a model will define a class-level `randomized_field` method.  The only required argument is the name of the field to populate, but there are a few optional arguments.  You can supply one or more of them.
+
+```ruby
+class Article < ApplicationRecord
+  # Control the length of the generated string.
+  # Default is 8.
+  randomized_field :slug, length: 10
+end
+
+class Article < ApplicationRecord
+  # Control the characters used to generate the string.
+  # Default is ('0'..'9') + ('a'..'z').
+  randomized_field :slug, valid_characters: %w[a b c]
+end
+
+class Article < ApplicationRecord
+  # Pass in a block that is passed the randomly generated string, but is called
+  # before setting the vaue. This allows you to transform the value, e.g.,
+  # adding a prefix, suffix, etc.
+  # Default is a no-op (don't transform the value)
+  randomized_field :slug do |slug_value|
+    "prefix_" + slug_value + "_suffix
+  end
+end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

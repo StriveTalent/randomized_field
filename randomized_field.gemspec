@@ -8,15 +8,19 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jesse Farmer"]
   spec.email         = ["jesse@strive.co"]
 
-  spec.summary       = "Randomized field"
-  spec.description   = "Randomized field"
+  spec.summary       = "An ActiveRecord module to populate a database field with a unique, randomly-generated string."
+  spec.description   = <<~EOM
+                       RandomizedField is a simple ActiveRecord module that populates a field with a unique,
+                       randomly-generated string.  This is useful for generating one-off tokens or creating a
+                       non-incrementing unique ID.  See the project page for example uses.
+                       EOM
   spec.homepage      = "http://github.com/strivetalent/randomized_field"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
     spec.metadata["homepage_uri"] = spec.homepage
     spec.metadata["source_code_uri"] = spec.homepage

@@ -1,4 +1,6 @@
 module RandomizedField
+  # Implements the before_create ActiveRecord callback used to set the value
+  # of the randomized field.
   class Callback
     attr_reader :field_name, :generator
 

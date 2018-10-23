@@ -4,6 +4,8 @@ require "randomized_field/generator"
 
 require "active_support/concern"
 
+# Top-level module that adds the randomized_field method to ActiveRecord
+# objects. Include in individual models or ApplicationRecord.
 module RandomizedField
   extend ActiveSupport::Concern
 

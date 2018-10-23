@@ -1,4 +1,6 @@
 module RandomizedField
+  # Class to generate a random string with a given length and set of valid
+  # characters.
   class Generator
     DEFAULTS = {
       length: 8,

@@ -10,6 +10,7 @@ RSpec.describe RandomizedField, type: :model do
 
     User.randomized_field :random_field1, length: 5
     User.randomized_field :random_field2, length: 10
+    User.randomized_field(:random_field3, length: 10) { |s| "U" + s }
   end
 
   it "has a version number" do
@@ -46,8 +47,6 @@ RSpec.describe RandomizedField, type: :model do
 
     context "when passed a block that adds a prefix" do
       it "adds the prefix to the generated string" do
-        User.randomized_field(:random_field3, length: 10) { |s| "U" + s }
-
         expect {
           user.save
         }.to change(user, :random_field3).from(nil).to(/^U.{#{field3_length}}$/)

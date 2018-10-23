@@ -21,7 +21,7 @@ module RandomizedField
         old_record = record.class.find_by(field_name => new_value)
       end
 
-      record[field_name] = new_value
+      new_value
     end
   end
 end

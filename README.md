@@ -78,7 +78,7 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/StriveTalent/randomized_field.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jfarmer/randomized_field.
 
 ## License
 

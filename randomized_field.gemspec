@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "An ActiveRecord module to populate a database field with a unique, randomly-generated string."
   spec.description   = "RandomizedField is a simple ActiveRecord module that populates a field with a unique randomly-generated string.  This is useful for generating one-off tokens or creating a non-incrementing unique ID."
-  spec.homepage      = "http://github.com/strivetalent/randomized_field"
+  spec.homepage      = "http://github.com/jfarmer/randomized_field"
   spec.license       = "MIT"
 
   spec.required_ruby_version = ">= 2.2.2"
